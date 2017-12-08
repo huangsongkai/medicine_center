@@ -1,0 +1,23 @@
+package com.${projectName}.dao;
+import com.${projectName}.model.dataObject.${simpleClassName};
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import java.util.List;
+
+public interface ${simpleClassName}MapperExt extends ${simpleClassName}Mapper {
+    //ALTER TABLE USER ADD FULLTEXT INDEX ft_index (NAME,DIRECTIVE) WITH PARSER ngram;
+    @Select({
+    "select * from ${object}",
+    //"where match(name, directive) against(#{q})",
+    //"where name like CONCAT('%',#{q},'%') or directive like CONCAT('%',#{q},'%')",
+    "LIMIT #{offset},#{limit}"
+    })
+    List<${simpleClassName}> selectByFullText(@Param("offset") int offset, @Param("limit") int limit, @Param("q") String q);
+
+    @Select({
+    "select count(1) from ${object}",
+    //"where match(name, directive) against(#{q})",
+    //"where name like CONCAT('%',#{q},'%') or directive like CONCAT('%',#{q},'%')",
+    })
+    int selectCountByFullText(@Param("q") String q);
+}

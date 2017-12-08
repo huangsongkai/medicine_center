@@ -1,0 +1,39 @@
+<!-- Author: Song -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<html>
+<head>
+    <title>CRUD Example--Edit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="/js/bootstrapCssWrapper-bundle.js"></script>
+</head>
+<body>
+<div id="root">
+</div>
+<div id="example">
+</div>
+<script type="text/javascript">
+    var form_title = "${object}列表";
+    var pageNo = window.location.hash;
+    if(pageNo){
+        pageNo = pageNo.substring(1);
+    }
+    var pageParas = {
+        url:"/${object}/list",
+        addUrl:"/${object}/add",
+        editUrl:"/${object}/edit",
+        activePage :pageNo,
+        columnFilter  : [
+            #foreach($field in $fieldList)
+                {name:"${field.name}", alias:"${field.name}" #if(${field.name} == "id"),type:"hidden" #else #end} #if(${velocityCount} < ${fieldList.size()}),
+            #else #end
+            #end
+        ],
+        searchBar: true,
+        identifier : "id"
+    };
+</script>
+<script src="/js/commonV3.js"></script>
+<script src="/js/pageListGenerator-bundle.js"></script>
+</body>
+</html>

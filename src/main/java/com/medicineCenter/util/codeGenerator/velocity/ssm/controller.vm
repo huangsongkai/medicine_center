@@ -1,0 +1,76 @@
+package com.${projectName}.interfaces.controller;
+
+import com.${projectName}.model.dataObject.${simpleClassName};
+import com.${projectName}.service.${simpleClassName}CrudService;
+import com.${projectName}.util.ObjectNullCheck;
+import com.${projectName}.util.Page;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import java.net.URLDecoder;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+/**
+* Created by song.
+*/
+@Controller
+@RequestMapping("/${object}")
+public class ${simpleClassName}CrudController extends BaseController {
+
+    @Resource
+    ${simpleClassName}CrudService ${object}CrudService;
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public ${simpleClassName} view(@PathVariable ${idType} id, HttpServletRequest request/*,Model model*/){
+        return ObjectNullCheck.getNonNullObject(${simpleClassName}.class, ${object}CrudService.get(id));
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    @ResponseBody
+    public Result create(@RequestBody ${simpleClassName} ${object}, HttpServletRequest request/*,Model model*/){
+        Result result = ${object}CrudService.add(${object});
+        return result;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public Result update(@PathVariable ${idType} id, @RequestBody ${simpleClassName} ${object}, HttpServletRequest request/*,Model model*/){
+        ${object}.setId(id);
+        int result = ${object}CrudService.update(${object});
+        return newResult(result, "", null);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Result delete(@PathVariable ${idType} id, @RequestBody ${simpleClassName} ${object}, HttpServletRequest request/*,Model model*/){
+        ${object}.setId(id);
+        int result = ${object}CrudService.delete(${object});
+        return newResult(result, "", null);
+    }
+
+    @RequestMapping(value = "/list/{pageNum}", method = RequestMethod.GET)
+    @ResponseBody
+    public Page<${simpleClassName}> viewList(@PathVariable int pageNum, String q, String asc, String desc, HttpServletRequest request/*,Model model*/){
+        if(q!=null)
+            q = URLDecoder.decode(q);
+        return ${object}CrudService.getList(pageNum, q, asc, desc);
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String redirectAdd(){
+        return "${object}/add";
+    }
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String redirectEdit(){
+        return "${object}/edit";
+    }
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String redirectDelete(){
+        return "${object}/delete";
+    }
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String redirectList(){
+        return "${object}/list";
+    }
+}

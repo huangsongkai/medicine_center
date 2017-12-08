@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--命令行运行：mvn mybatis-generator:generate-->
+<generatorConfiguration>
+    <classPathEntry location="/Users/huang/work/mysql-connector-java-5.1.30.jar" />
+
+    <context id="mysql" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/medicine_center"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.medicineCenter.model.dataObject" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.medicineCenter.dao"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--<table tableName="T_ORDER" domainObjectName="Order" >-->
+        <!--</table>-->
+        <!--<table tableName="group_experts" >-->
+        <!--</table>-->
+        <!--<table tableName="inspection_group" >-->
+        <!--</table>-->
+
+        <table tableName="experts_cd_log" >
+        </table>
+        <table tableName="experts_up_log" >
+        </table>
+
+
+
+        <!--<table tableName="ACTIVITY_ITEM" >
+        </table>
+        <table tableName="ACTIVITY_SHOP" >
+        </table>
+        <table tableName="ACTIVITY" >
+        </table>-->
+        <!--<table tableName="MEDICINE_INFO" >
+        </table>
+        <table tableName="REMIND" >
+        </table>-->
+        <!--<table tableName="PIC_INFO" >-->
+        <!--</table>-->
+
+        <!--<table tableName="SHOP_INFO" >-->
+        <!--</table>-->
+
+        <!--<table tableName="SHOP_MEDICINE" >-->
+        <!--</table>-->
+
+
+        <!--<table tableName="SHOP_COMMENT" >-->
+        <!--</table>-->
+        <!--
+                CART             |
+                | CART_ITEM        |
+                | MEDICINE_COMMENT |
+                | PIC_INFO         |
+                | PIC_ITEM_SNAP    |
+                | PIC_MEDICINE     |
+                | PIC_SHOP         |
+                | SHOP_COMMENT     |
+                | SHOP_MEDICINE    |
+                | USER             |
+                | USER_INFO        |
+                | medicine_info    |
+                | shop_info        |
+                | tensors
+
+        -->
+
+        <!--<table tableName="CART" >-->
+        <!--</table>-->
+        <!--<table tableName="PIC_ITEM_SNAP" >-->
+        <!--</table>-->
+        <!--<table tableName="PIC_MEDICINE" >-->
+        <!--</table>-->
+        <!--<table tableName="PIC_SHOP" >-->
+        <!--</table>-->
+        <!--<table tableName="ITEM" >-->
+        <!--</table>-->
+        <!--<table tableName="points_new" >-->
+        <!--</table>-->
+
+            </context>
+        </generatorConfiguration>
