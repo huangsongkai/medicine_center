@@ -11,6 +11,7 @@
            http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
     <!--<mvc:annotation-driven/>-->
+
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -122,5 +123,6 @@
         <property name="defaultStatusCode" value="500"/>
     </bean>
     <mvc:annotation-driven />
+
     <!-- 全局异常配置 end -->
 </beans>

@@ -114,7 +114,7 @@ public class SSMGenerator implements Generator{
         SSMGenerator ssm = new SSMGenerator();
         Properties properties = new Properties();
         properties.setProperty("projectName", "medicineCenter");
-        properties.setProperty("simpleClassName", "ExpertsCdLog");
+        properties.setProperty("simpleClassName", "Test");
         ssm.init(properties);
         ssm.generateAll();
 //      ssm.generateJsp();

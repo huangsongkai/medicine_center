@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
 * Created by song.
 */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 @RequestMapping("/expertsinfo")
 public class ExpertsInfoCrudController extends BaseController {

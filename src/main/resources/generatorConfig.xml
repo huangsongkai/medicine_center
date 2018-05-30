@@ -30,15 +30,15 @@
 
         <!--<table tableName="T_ORDER" domainObjectName="Order" >-->
         <!--</table>-->
-        <!--<table tableName="group_experts" >-->
-        <!--</table>-->
+        <table tableName="test" >
+        </table>
         <!--<table tableName="inspection_group" >-->
         <!--</table>-->
 
-        <table tableName="experts_cd_log" >
-        </table>
-        <table tableName="experts_up_log" >
-        </table>
+        <!--<table tableName="experts_cd_log" >-->
+        <!--</table>-->
+        <!--<table tableName="experts_up_log" >-->
+        <!--</table>-->
 
 
 

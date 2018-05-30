@@ -15,6 +15,7 @@ import java.net.URLDecoder;
 /**
 * Created by song.
 */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 @RequestMapping("/experts")
 public class    ExpertsCrudController extends BaseController {

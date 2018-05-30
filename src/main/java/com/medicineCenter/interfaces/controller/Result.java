@@ -1,5 +1,7 @@
 package com.medicineCenter.interfaces.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,7 @@ import java.io.Serializable;
  * @author liuruichao
  * 
  */
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class Result<E> implements Serializable {
 	private static final long serialVersionUID = 1L;
 

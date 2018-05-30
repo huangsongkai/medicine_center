@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by song.
  */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 @RequestMapping("/admin/user")
 public class UserCrudController extends BaseController {

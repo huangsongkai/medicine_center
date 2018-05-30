@@ -24,6 +24,7 @@ import java.util.List;
 /**
 * Created by song.
 */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 @RequestMapping("/d1")
 public class D1Controller extends BaseController {

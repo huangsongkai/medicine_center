@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by song on 16/7/22.
  */
+
 public class BaseController {
     protected final Logger logger = Logger.getLogger(this.getClass());
     protected final int PAGE_SIZE = PageUtil.PAGE_SIZE;

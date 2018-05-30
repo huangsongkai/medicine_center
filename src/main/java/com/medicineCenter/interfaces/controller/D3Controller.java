@@ -22,6 +22,7 @@ import java.util.List;
 /**
 * Created by song.
 */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 @RequestMapping("/d3")
 public class D3Controller extends BaseController {
